@@ -13,7 +13,7 @@ class _esaypaisaState extends State<esaypaisa> {
 
     //TODO: implement initState
     super.initState();
-    Future.delayed(Duration(seconds: 2),(){
+    Future.delayed(Duration(seconds: 7),(){
       Navigator.pushReplacement(context, MaterialPageRoute(
           builder: (context){
 

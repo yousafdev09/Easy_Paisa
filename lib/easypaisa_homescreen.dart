@@ -7,13 +7,15 @@ class homescreen extends StatefulWidget {
 }
 
 class _homescreenState extends State<homescreen> {
+  bool isclicked=false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: isclicked==true?Colors.green:Colors.black12,
 
       appBar: AppBar(
 
-        backgroundColor: Colors.green,
+        backgroundColor: isclicked==true?Colors.black:Colors.green,
 
         leading: Padding(
           padding: const EdgeInsets.only(left: 15),
@@ -31,20 +33,33 @@ class _homescreenState extends State<homescreen> {
           Icon(Icons.search,color: Colors.white,),
           SizedBox(width: 7,),
           Icon(Icons.notifications_outlined,color: Colors.white,),
+          IconButton(onPressed: (){
+            if(isclicked==true)
+            {
+              isclicked=false;
+            }
+            else
+            {
+              isclicked=true;
+            }
+            setState(() {
+
+            });
+          }, icon: Icon(Icons.color_lens,color: Colors.white,)),
 
           SizedBox(width: 15,)
         ],
 
 
       ),
-
+      
       body: SingleChildScrollView(
         child: Column(children: [
         
           Container(
             height: 300,
             width: double.infinity,
-            color: Colors.green,
+            color: isclicked==true?Colors.grey:Colors.green,
 
             child: Container(
               margin: EdgeInsets.all(20),
@@ -180,7 +195,7 @@ class _homescreenState extends State<homescreen> {
                     borderRadius: BorderRadius.circular(20),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
+                          color:  isclicked==true?Colors.white.withOpacity(0.5):Colors.black.withOpacity(0.1),
                           blurRadius: 2,
                           spreadRadius: 1,
                           offset: Offset(4, 4), // x , y
@@ -207,7 +222,7 @@ class _homescreenState extends State<homescreen> {
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
+                          color:  isclicked==true?Colors.white.withOpacity(0.5):Colors.black.withOpacity(0.1),
                           blurRadius: 2,
                           spreadRadius: 1,
                           offset: Offset(4, 4), // x , y
@@ -234,7 +249,7 @@ class _homescreenState extends State<homescreen> {
                       borderRadius: BorderRadius.circular(20),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.black.withOpacity(0.1),
+                          color:  isclicked==true?Colors.white.withOpacity(0.5):Colors.black.withOpacity(0.1),
                           blurRadius: 2,
                           spreadRadius: 1,
                           offset: Offset(4, 4), // x , y
@@ -253,7 +268,7 @@ class _homescreenState extends State<homescreen> {
               padding: const EdgeInsets.only(top: 22),
               child: Row(children: [
                 SizedBox(width: 22,),
-                Text('More with easypaisa',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),),
+                Text('More with easypaisa',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17,color:  isclicked==true?Colors.white:Colors.black,),),
 
               ],),
             )
